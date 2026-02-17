@@ -2,8 +2,10 @@
   (:require [loan-analyzer.api.http-server :as server]))
 
 (defn start-service
-  []
-  (server/start-server))
+  ([]
+   (start-service :prod))
+  ([mode]
+   (server/start-server [mode])))
 
 (defn stop-service
   []

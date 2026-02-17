@@ -62,13 +62,15 @@
   (acc/grouping-by :decision
                    (partial
                     reduce-kv
-                    (fn [result decision reasons]
+                    (fn [result decision-key decision-data]
                       (conj result
-                            {:decision decision
-                             :reasons (reduce (fn [rs reason]
-                                                (conj rs (:reason reason)))
+                            {:decision decision-key
+                             :reasons (reduce (fn [reasons data]
+                                                (if-let [reason (:reason data)]
+                                                  (conj reasons reason)
+                                                  reasons))
                                               []
-                                              reasons)}))
+                                              decision-data)}))
                     [])))
 
 (defquery get-decisions
