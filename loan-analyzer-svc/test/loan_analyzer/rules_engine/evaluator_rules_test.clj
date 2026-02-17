@@ -18,7 +18,9 @@
             :reasons [{:code "LOW_CREDIT_SCORE"
                        :message "Credit score < 650"}
                       {:code "LOW_INCOME"
-                       :message "Income < 30000"}]}
+                       :message "Income < 30000"}
+                      {:code "INSUFFICIENT_EMPLOYMENT_HISTORY"
+                       :message "Employment years < 1"}]}
            (first
             (sut/evaluate-loan-application {:credit_score 620
                                             :income 2000
@@ -30,4 +32,5 @@
             :reasons [nil]}
            (first
             (sut/evaluate-loan-application {:credit_score 1000
-                                            :income 50000}))))))
+                                            :income 50000
+                                            :employment_years 2}))))))

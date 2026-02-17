@@ -19,7 +19,6 @@
    (map->Decision (assoc (decision decisions)
                          :reason reason))))
 
-
 (defrule approved-loan
   =>
   (insert! (->decision :decision/approved)))
@@ -41,12 +40,14 @@
                         :message "Income < 30000"})))
 
 
-;; (defrule employment-hsitory
-;;   [LoanApplication (= ?employment-years employment-years)]
-;;   [:test (< ?employment-years 1)]
-;;   =>
-;;   (insert! (->Decision :review {:code "INSUFFICIENT_EMPLOYMENT_HISTORY"
-;;                                  :message  "Employment years < 1"})))
+(defrule employment-hsitory
+  [LoanApplication (= ?employment-years employment-years)]
+  [:test (and (some? ?employment-years)
+              (< ?employment-years 1))]
+  =>
+  (insert! (->decision :decision/review
+                       {:code "INSUFFICIENT_EMPLOYMENT_HISTORY"
+                        :message  "Employment years < 1"})))
 
 (defrule very-low-credit-score
   [LoanApplication (= ?credit-score credit-score)]
@@ -55,7 +56,6 @@
   (insert! (->decision :decision/denied
                        {:code "VERY_LOW_CREDIT_SCORE"
                         :message "Credit score < 600"})))
-
 
 (def reasons-by-decisions
   "Aggregates reasons by decisions accumulating reasons"
