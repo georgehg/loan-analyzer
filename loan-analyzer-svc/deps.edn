@@ -1,0 +1,15 @@
+{:deps    {org.clojure/clojure  {:mvn/version "1.12.1"}
+           cheshire/cheshire    {:mvn/version "6.0.0"}}
+
+ :paths   ["src"]
+
+ :aliases {:run    {:main-opts ["-m" "loan-analyzer.core"]}
+
+           :test   {:extra-paths ["test"]
+                    :extra-deps  {lambdaisland/kaocha             {:mvn/version "1.91.1392"}
+                                  com.gearswithingears/shrubbery  {:mvn/version "0.4.1"}}
+                    :main-opts   ["-m" "kaocha.runner"]
+                    :jvm-opts    ["-Dconfig.profile=test"]}
+
+           :build  {:deps {io.github.clojure/tools.build {:mvn/version "0.10.5"}}
+                    :ns-default build}}}

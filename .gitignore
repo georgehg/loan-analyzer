@@ -1,0 +1,23 @@
+### Clojure ###
+.clj-kondo/
+pom.xml
+pom.xml.asc
+*.jar
+*.class
+/lib/
+/classes/
+/target/
+/checkouts/
+.nrepl-port
+.cpcache/
+.calva
+.lsp
+trace.edn
+*.db
+**/.DS_Store
+
+# MacOS
+**/.DS_Store
+
+# Shell nohup command output
+nohup.out

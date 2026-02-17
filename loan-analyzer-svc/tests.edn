@@ -1,0 +1,5 @@
+#kaocha/v1
+{:tests [{:id :unit
+          :source-paths ["src/loan_analyzer"]
+          :test-paths ["test/loan_analyzer"]
+          :ns-patterns ["-test$"]}]}
