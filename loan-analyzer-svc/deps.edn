@@ -1,8 +1,12 @@
-{:deps    {org.clojure/clojure     {:mvn/version "1.12.1"}
-           cheshire/cheshire       {:mvn/version "6.0.0"}
-           com.cerner/clara-rules  {:mvn/version "0.24.0"}}
+{:deps    {org.clojure/clojure             {:mvn/version "1.12.1"}
+           ch.qos.logback/logback-classic  {:mvn/version "1.5.18"}
+           cheshire/cheshire               {:mvn/version "6.0.0"}
+           com.cerner/clara-rules          {:mvn/version "0.24.0"}
+           io.pedestal/pedestal.error      {:mvn/version "0.8.1"}
+           io.pedestal/pedestal.jetty      {:mvn/version "0.8.1"}
+           io.pedestal/pedestal.service    {:mvn/version "0.8.1"}}
 
- :paths   ["src"]
+ :paths   ["src" "resources"]
 
  :aliases {:run    {:main-opts ["-m" "loan-analyzer.core"]}
 
