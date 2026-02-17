@@ -36,10 +36,12 @@
 (defonce *connector (atom nil))
 
 (defn start-server
-  []
-  (reset! *connector
-          (conn/start! (create-http-server)))
-  (logger/info :started :http-server :port 8090))
+  [mode]
+  (let [server (create-http-server)]
+    (if (= :test mode)
+      (reset! *connector server)
+      (do (reset! *connector (conn/start! server))
+          (logger/info :started :http-server :port 8090)))))
 
 (defn stop-server
   []

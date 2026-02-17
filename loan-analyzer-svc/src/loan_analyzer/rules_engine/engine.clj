@@ -7,9 +7,9 @@
   (mk-session 'loan-analyzer.rules-engine.rules))
 
 (defn- insert-loan-fact
-  [session {:keys [credit_score income employment_years]}]
+  [session {:keys [creditScore income employmentYears]}]
   (insert session
-          (rules/->LoanApplication credit_score income employment_years)))
+          (rules/->LoanApplication creditScore income employmentYears)))
 
 (defn- query-decisions
   [session]
@@ -22,4 +22,5 @@
       fire-rules
       query-decisions
       first
-      :?decisions))
+      :?decisions
+      first))

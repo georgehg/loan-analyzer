@@ -4,7 +4,8 @@
            com.cerner/clara-rules          {:mvn/version "0.24.0"}
            io.pedestal/pedestal.error      {:mvn/version "0.8.1"}
            io.pedestal/pedestal.jetty      {:mvn/version "0.8.1"}
-           io.pedestal/pedestal.service    {:mvn/version "0.8.1"}}
+           io.pedestal/pedestal.service    {:mvn/version "0.8.1"}
+           metosin/malli                   {:mvn/version "0.16.2"}}
 
  :paths   ["src" "resources"]
 
