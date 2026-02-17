@@ -1,5 +1,6 @@
-{:deps    {org.clojure/clojure  {:mvn/version "1.12.1"}
-           cheshire/cheshire    {:mvn/version "6.0.0"}}
+{:deps    {org.clojure/clojure     {:mvn/version "1.12.1"}
+           cheshire/cheshire       {:mvn/version "6.0.0"}
+           com.cerner/clara-rules  {:mvn/version "0.24.0"}}
 
  :paths   ["src"]
 
