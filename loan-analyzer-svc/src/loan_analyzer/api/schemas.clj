@@ -37,7 +37,6 @@
   (interceptor/interceptor
    {:name :validate-request-body
     :enter (fn [context]
-             (println "body: " (get-in context [:request :json-params]))
              (validate-input schema
                              (get-in context [:request :json-params])
                              "Invalid request input")
